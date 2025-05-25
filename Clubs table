@@ -1,0 +1,7 @@
+CREATE TABLE clubs (
+    club_id INT AUTO_INCREMENT PRIMARY KEY,
+    college_id INT,
+    club_name VARCHAR(100),
+    description TEXT,
+    FOREIGN KEY (college_id) REFERENCES virtual_colleges(college_id)
+);
