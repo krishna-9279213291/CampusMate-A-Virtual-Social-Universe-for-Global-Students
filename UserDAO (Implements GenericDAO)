@@ -1,0 +1,78 @@
+public class UserDAO implements GenericDAO<User> {
+    private Connection conn;
+
+    public UserDAO(Connection conn) {
+        this.conn = conn;
+    }
+
+    @Override
+    public void add(User user) throws Exception {
+        String sql = "INSERT INTO users (name, email, password, profile_picture, college_name) VALUES (?, ?, ?, ?, ?)";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, user.getName());
+        stmt.setString(2, user.getEmail());
+        stmt.setString(3, user.getPassword());
+        stmt.setString(4, user.getProfilePicture());
+        stmt.setString(5, user.getCollegeName());
+        stmt.executeUpdate();
+    }
+
+    @Override
+    public User get(int id) throws Exception {
+        String sql = "SELECT * FROM users WHERE id = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, id);
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            User user = new User();
+            user.setId(rs.getInt("id"));
+            user.setName(rs.getString("name"));
+            user.setEmail(rs.getString("email"));
+            user.setPassword(rs.getString("password"));
+            user.setProfilePicture(rs.getString("profile_picture"));
+            user.setCollegeName(rs.getString("college_name"));
+            return user;
+        }
+        return null;
+    }
+
+    @Override
+    public List<User> getAll() throws Exception {
+        String sql = "SELECT * FROM users";
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        List<User> users = new ArrayList<>();
+        while (rs.next()) {
+            User user = new User();
+            user.setId(rs.getInt("id"));
+            user.setName(rs.getString("name"));
+            user.setEmail(rs.getString("email"));
+            user.setPassword(rs.getString("password"));
+            user.setProfilePicture(rs.getString("profile_picture"));
+            user.setCollegeName(rs.getString("college_name"));
+            users.add(user);
+        }
+        return users;
+    }
+
+    @Override
+    public void update(User user) throws Exception {
+        String sql = "UPDATE users SET name=?, email=?, password=?, profile_picture=?, college_name=? WHERE id=?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, user.getName());
+        stmt.setString(2, user.getEmail());
+        stmt.setString(3, user.getPassword());
+        stmt.setString(4, user.getProfilePicture());
+        stmt.setString(5, user.getCollegeName());
+        stmt.setInt(6, user.getId());
+        stmt.executeUpdate();
+    }
+
+    @Override
+    public void delete(int id) throws Exception {
+        String sql = "DELETE FROM users WHERE id=?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, id);
+        stmt.executeUpdate();
+    }
+}
