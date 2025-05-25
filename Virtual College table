@@ -1,0 +1,10 @@
+CREATE TABLE virtual_colleges (
+    college_id INT AUTO_INCREMENT PRIMARY KEY,
+    college_name VARCHAR(100) UNIQUE,
+    description TEXT,
+    college_type ENUM('fun', 'serious'),
+    admin_user_id INT,
+    theme_color VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (admin_user_id) REFERENCES users(user_id)
+);
