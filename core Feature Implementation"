@@ -1,0 +1,58 @@
+✅ Phase 1: Core Feature UI Structure
+These are the key components we'll design and implement:
+
+1. Home Feed (🏠)
+News feed of college posts, announcements, and stories.
+
+2. Search (🔍)
+Search bar to find users, colleges, or clubs.
+
+3. Colleges (🎓)
+Browse and join virtual colleges.
+
+4. Challenges (🏆)
+View and participate in academic, fun, or coding challenges.
+
+5. Inbox (💬)
+Messages and notifications center.
+
+6. Profile (👤)
+View your posts, badges, stats.
+
+🔧 Phase 2: Navigation Layout (Instagram-like)
+We’ll add:
+
+A responsive sidebar (desktop)
+
+A bottom tab bar (mobile)
+
+📦 Phase 3: Backend Functionality (after UI is done)
+We'll add:
+
+Login/signup system integration
+
+MongoDB to store user data, posts, colleges
+
+Node.js/Express APIs for communication
+
+🛠 Step-by-Step Guide to Start
+✅ Step 1: Create File Structure
+pgsql
+Copy code
+campusmate/
+├── index.html
+├── styles.css
+├── js/
+│   └── app.js
+├── assets/
+│   └── icons, images, logos
+└── backend/
+    ├── server.js
+    └── routes/
+        └── auth.js, users.js, colleges.js
+✅ Step 2: Start With HTML + CSS Navigation
+I’ll now generate:
+
+A complete HTML page with sidebar + all 6 icons
+
+Matching CSS styles
