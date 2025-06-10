@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CampusMate - Sign Up</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="welcome-text">Welcome, Explorer 👋</h1>
+    <p class="sub-text">Let’s get you started on your CampusMate journey!</p>
+    
+    <form class="signup-form">
+      <div class="name-fields">
+        <input type="text" placeholder="First Name" required />
+        <input type="text" placeholder="Middle Name (optional)" />
+        <input type="text" placeholder="Last Name" required />
+      </div>
+
+      <input type="email" placeholder="Email Address" required />
+      <input type="tel" placeholder="Phone Number" required />
+      <input type="date" placeholder="Date of Birth" required />
+
+      <select required>
+        <option value="" disabled selected>Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+
+      <input type="text" placeholder="College / University Name" required />
+      <input type="password" placeholder="Create Password" required />
+      <input type="password" placeholder="Confirm Password" required />
+
+      <button type="submit">Create Account 🚀</button>
+    </form>
+    
+    <p class="login-redirect">Already have an account? <a href="login.html">Log In</a></p>
+  </div>
+</body>
+</html>
+<form class="signup-form" action="/signup" method="POST">
