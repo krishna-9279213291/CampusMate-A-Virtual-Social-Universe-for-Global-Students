@@ -1,0 +1,38 @@
+<form id="signupForm">
+  <input type="text" id="name" required />
+  <input type="email" id="email" required />
+  <button type="submit">Sign Up</button>
+</form>
+<div id="responseMsg"></div>
+document.getElementById("signupForm").addEventListener("submit", async function (e) {
+  e.preventDefault(); // prevent page reload
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+
+  const res = await fetch("/api/signup", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, email })
+  });
+
+  const data = await res.json();
+  document.getElementById("responseMsg").innerText = data.message;
+});
+<div class="bottom-nav">
+  <button id="homeBtn">🏠</button>
+  <button id="searchBtn">🔍</button>
+</div>
+document.getElementById("homeBtn").addEventListener("click", () => {
+  window.location.href = "home.html";
+});
+
+document.getElementById("searchBtn").addEventListener("click", () => {
+  window.location.href = "search.html";
+});
+<input type="text" id="usernameInput" placeholder="Enter your username" />
+<p>Preview: <span id="preview"></span></p>
+
+document.getElementById("usernameInput").addEventListener("input", (e) => {
+  document.getElementById("preview").textContent = e.target.value;
+});
