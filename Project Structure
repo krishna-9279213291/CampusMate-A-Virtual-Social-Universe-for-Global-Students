@@ -1,0 +1,25 @@
+CampusMate/
+├── WebContent/
+│   ├── index.jsp
+│   ├── login.jsp
+│   ├── signup.jsp
+│   ├── dashboard.jsp
+│   └── css/
+│       └── style.css
+│
+├── src/
+│   └── com.campusmate.controller/
+│       ├── LoginServlet.java
+│       ├── SignupServlet.java
+│       ├── DashboardServlet.java
+│
+│   └── com.campusmate.model/
+│       ├── User.java
+│       ├── College.java
+│
+│   └── com.campusmate.dao/
+│       ├── UserDAO.java
+│       ├── CollegeDAO.java
+│
+├── WEB-INF/
+│   └── web.xml
