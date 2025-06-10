@@ -1,0 +1,19 @@
+campusmate/
+│
+├── client/
+│   ├── index.html
+│   ├── signup.html
+│   ├── login.html
+│   ├── dashboard.html
+│   ├── styles/
+│   └── scripts/
+│
+├── server/
+│   ├── routes/
+│   ├── models/
+│   ├── controllers/
+│   ├── config/
+│   └── server.js
+│
+├── README.md
+└── package.json
