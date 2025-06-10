@@ -1,0 +1,67 @@
+<form id="signupForm">
+  <input type="text" id="name" placeholder="Full Name" required />
+  <input type="email" id="email" placeholder="Email" required />
+  <input type="tel" id="phone" placeholder="Phone" required />
+  <input type="password" id="password" placeholder="Password" required />
+  <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+  <button type="submit">Sign Up</button>
+  <div id="errorMsg" style="color: red; margin-top: 10px;"></div>
+</form>
+document.getElementById("signupForm").addEventListener("submit", function (e) {
+  e.preventDefault(); // Stop default submit
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+  const errorMsg = document.getElementById("errorMsg");
+
+  if (!name || !email || !phone || !password || !confirmPassword) {
+    errorMsg.textContent = "All fields are required.";
+    return;
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    errorMsg.textContent = "Enter a valid email address.";
+    return;
+  }
+
+  if (!/^\d{10}$/.test(phone)) {
+    errorMsg.textContent = "Phone number must be 10 digits.";
+    return;
+  }
+
+  if (password.length < 6) {
+    errorMsg.textContent = "Password must be at least 6 characters.";
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    errorMsg.textContent = "Passwords do not match.";
+    return;
+  }
+
+  errorMsg.textContent = ""; // Clear error
+
+  // 🟢 Submit to backend if validation passes
+  this.submit();
+});
+<input type="password" id="password" placeholder="Password" oninput="checkStrength()" />
+<small id="strength" style="color: yellow;"></small>
+function checkStrength() {
+  const pass = document.getElementById("password").value;
+  const strength = document.getElementById("strength");
+
+  if (pass.length < 6) {
+    strength.textContent = "Too weak";
+    strength.style.color = "red";
+  } else if (/[A-Z]/.test(pass) && /\d/.test(pass)) {
+    strength.textContent = "Strong";
+    strength.style.color = "lime";
+  } else {
+    strength.textContent = "Moderate";
+    strength.style.color = "orange";
+  }
+}
