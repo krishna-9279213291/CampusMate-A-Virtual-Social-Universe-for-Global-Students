@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusMate</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      color: white;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background-color: #000;
+      border-right: 1px solid #222;
+      height: 100vh;
+      padding: 20px;
+      position: fixed;
+    }
+
+    .sidebar h1 {
+      font-size: 24px;
+      margin-bottom: 30px;
+      color: white;
+    }
+
+    .sidebar a {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 12px 10px;
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      border-radius: 10px;
+      transition: background 0.2s ease;
+    }
+
+    .sidebar a:hover {
+      background-color: #111;
+    }
+
+    .material-icons {
+      font-size: 24px;
+    }
+
+    /* Main Content Placeholder */
+    .main {
+      margin-left: 250px;
+      padding: 20px;
+      flex-grow: 1;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+      .bottom-nav {
+        display: flex;
+      }
+      .main {
+        margin-left: 0;
+      }
+    }
+
+    /* Bottom Nav for Mobile */
+    .bottom-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #000;
+      border-top: 1px solid #222;
+      justify-content: space-around;
+      padding: 10px 0;
+    }
+
+    .bottom-nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar Navigation (Desktop) -->
+  <div class="sidebar">
+    <h1>CampusMate</h1>
+    <a href="#"><span class="material-icons">home</span>Home Feed</a>
+    <a href="#"><span class="material-icons">search</span>Search</a>
+    <a href="#"><span class="material-icons">school</span>Colleges</a>
+    <a href="#"><span class="material-icons">emoji_events</span>Challenges</a>
+    <a href="#"><span class="material-icons">chat</span>Inbox</a>
+    <a href="#"><span class="material-icons">person</span>Profile</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <h2>Welcome to CampusMate</h2>
+    <p>This is where your feed or content will go.</p>
+  </div>
+
+  <!-- Bottom Navigation (Mobile) -->
+  <div class="bottom-nav">
+    <a href="#"><span class="material-icons">home</span>Home</a>
+    <a href="#"><span class="material-icons">search</span>Search</a>
+    <a href="#"><span class="material-icons">school</span>Colleges</a>
+    <a href="#"><span class="material-icons">emoji_events</span>Challenges</a>
+    <a href="#"><span class="material-icons">chat</span>Inbox</a>
+    <a href="#"><span class="material-icons">person</span>Profile</a>
+  </div>
+
+</body>
+</html>
+<link rel="stylesheet" href="styles.css" />
